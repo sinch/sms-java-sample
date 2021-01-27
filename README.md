@@ -12,7 +12,7 @@ For a more detailed explanation on whats going on the code see [SMS getting star
 This template repo allows you to quickly set up an Java Spring boot appllicaiton to enable you to send adn recive SMS via rest commands. It also spins up a [ngrok](https:ngrok.com) tunnel than you can use to configure your application to recive sms in the dashboard. 
 
 ## Setup
-Open [SmsJavaSampleApplication.java](src/main/main/java/com/sinchdemos/smsjavasample/SmsJavaSampleApplication.java) and fill in your values. You can find all the blow values at https://dashboard.sinch.com/sms/api
+Open [SmsJavaSampleApplication.java](https://github.com/sinch/sms-java-sample/blob/90df5881704950ee1e7de420f35adbaa3e4feea0/src/main/java/com/sinchdemos/smsjavasample/SmsJavaSampleApplication.java#L34) and fill in your values. You can find all the blow values at https://dashboard.sinch.com/sms/api
 
 ```java
     static String SERVICE_PLAN_ID = "";
