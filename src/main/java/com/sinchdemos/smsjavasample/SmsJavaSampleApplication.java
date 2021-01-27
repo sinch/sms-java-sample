@@ -18,8 +18,8 @@ public class SmsJavaSampleApplication {
 	// to find all the information you need, go to
 	// https://dashboard.sinch.com/sms/api/ click on the sms service you want to use
 	// and Numbers, tokens and keys are found there.
-	static String SERVICE_PLAN_ID = "";
-	static String TOKEN = "";
+	private static final String SERVICE_PLAN_ID = "";
+	private static final String TOKEN = "";
 	private static String SENDER = ""; // This is the a sinch number from your dasbhoard. in e164 format
 	private static ApiConnection conn;
 
@@ -31,8 +31,8 @@ public class SmsJavaSampleApplication {
 
 	@PostMapping("/sms/send")
 	public  MtBatchTextSmsResult sendSMS(@RequestBody SMSModel sms) {
-		String[] RECIPIENTS = { sms.ToPhonenumber }; 
-		var message = SinchSMSApi.batchTextSms().sender(SENDER).addRecipient(RECIPIENTS).body(sms.Body).build();
+		String[] to = { sms.ToPhonenumber }; 
+		var message = SinchSMSApi.batchTextSms().sender(SENDER).addRecipient(to).body(sms.Body).build();
 		try {
 			MtBatchTextSmsResult batch = conn.createBatch(message);
 			return batch;
@@ -54,8 +54,8 @@ public class SmsJavaSampleApplication {
 		
 		System.out.println(incoming);
 		//send an autoreply back 
-		String[] RECIPIENTS = {  incoming.sender}; 
-		var message = SinchSMSApi.batchTextSms().sender(SENDER).addRecipient(RECIPIENTS).body("Automated reply").build();
+		String[] to = {  incoming.sender}; 
+		var message = SinchSMSApi.batchTextSms().sender(SENDER).addRecipient(to).body("Automated reply").build();
 		try {
 			MtBatchTextSmsResult batch = conn.createBatch(message);
 			System.out.println(batch);

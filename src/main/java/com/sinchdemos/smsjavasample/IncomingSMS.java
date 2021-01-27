@@ -1,10 +1,5 @@
 package com.sinchdemos.smsjavasample;
-
-import java.time.OffsetTime;
-
 import javax.annotation.Nullable;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IncomingSMS {
