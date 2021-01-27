@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Sending SMS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'To: ' + ${smsresult.ToPhonenumber}" />
+    <p th:text="'content: ' + ${smsresult.Body}" />
+    <p th:text="'Batch Id: ' + ${smsresult.BatchId}" />
+    <a href="/sendSMS">Submit another message</a>
+</body>
+</html>
