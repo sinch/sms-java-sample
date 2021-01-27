@@ -1,6 +1,6 @@
 ## Sample app repo for Sinch Getting started. 
 
-For a more detailed explanation on whats going on the code see [SMS getting started](https://developers.sinch.com/docs/sms)
+For a more detailed explanation on whats going on the code see [SMS getting started](https://developers.sinch.com/docs/sms-java)
 
 # Prerequisites
 
