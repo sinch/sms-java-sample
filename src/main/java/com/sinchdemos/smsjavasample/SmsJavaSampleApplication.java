@@ -20,9 +20,9 @@ public class SmsJavaSampleApplication {
 	// to find all the information you need, go to
 	// https://dashboard.sinch.com/sms/api/ click on the sms service you want to use
 	// and Numbers, tokens and keys are found there.
-	static String SERVICE_PLAN_ID = ***REMOVED***;
-	static String TOKEN = ***REMOVED***;
-	private static String SENDER = "+14322946402"; // This is the a sinch number from your dasbhoard. in e164 format
+	static String SERVICE_PLAN_ID = "";
+	static String TOKEN = "";
+	private static String SENDER = ""; // This is the a sinch number from your dasbhoard. in e164 format
 	private static ApiConnection conn;
 
 	public static void main(String[] args) {
