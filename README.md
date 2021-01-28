@@ -15,10 +15,11 @@ This template repo allows you to quickly set up a Java Spring boot application t
 Open [SmsJavaSampleApplication.java](https://github.com/sinch/sms-java-sample/blob/90df5881704950ee1e7de420f35adbaa3e4feea0/src/main/java/com/sinchdemos/smsjavasample/SmsJavaSampleApplication.java#L34) and fill in your values. You will find all the below values at https://dashboard.sinch.com/sms/api.
 
 ```java
-    static String SERVICE_PLAN_ID = "";
-	static String TOKEN = "";
-	private static String SENDER = ""; 
+static String SERVICE_PLAN_ID = "";
+static String TOKEN = "";
+private static String SENDER = ""; 
 ```
+
 and run 
 '''
 .\gradlew bootRun
@@ -29,16 +30,21 @@ and run
 The method that handles sending SMS is located at src/main/main/java/com/sinchdemos/smsjavasample/SmsJavaSampleApplication.java and is named sendSMS. 
 
 Make a post request with your favorite tool and don't forget to change *ToPhonenumber* to your own number including + and country code. 
-'''shell
+
+Curl
+
+```shell
 curl --location --request POST 'https://localhost:8080/sms/send' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "ToPhonenumber": "+15612600684",
     "Body": "Hello"
 }'
-'''
-PowerShell
 ```
+
+PowerShell
+
+```powershell
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Content-Type", "application/json")
 $body = "{

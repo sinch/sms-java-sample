@@ -2,6 +2,7 @@ package com.sinchdemos.smsjavasample;
 
 import com.sinch.xms.ApiConnection;
 import com.sinch.xms.SinchSMSApi;
+import com.sinch.xms.api.MtBatchTextSmsCreate;
 import com.sinch.xms.api.MtBatchTextSmsResult;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,11 +29,11 @@ public class SmsJavaSampleApplication {
 		conn = ApiConnection.builder().servicePlanId(SERVICE_PLAN_ID).token(TOKEN).start();
 	}
 
-
 	@PostMapping("/sms/send")
-	public  MtBatchTextSmsResult sendSMS(@RequestBody SMSModel sms) {
-		String[] to = { sms.ToPhonenumber }; 
-		var message = SinchSMSApi.batchTextSms().sender(SENDER).addRecipient(to).body(sms.Body).build();
+	public MtBatchTextSmsResult sendSMS(@RequestBody SMSModel sms) {
+		String[] to = { sms.ToPhonenumber };
+		MtBatchTextSmsCreate message = SinchSMSApi.batchTextSms().sender(SENDER).addRecipient(to).body(sms.Body)
+				.build();
 		try {
 			MtBatchTextSmsResult batch = conn.createBatch(message);
 			return batch;
@@ -55,7 +56,8 @@ public class SmsJavaSampleApplication {
 		System.out.println(incoming);
 		//send an autoreply back 
 		String[] to = {  incoming.sender}; 
-		var message = SinchSMSApi.batchTextSms().sender(SENDER).addRecipient(to).body("Automated reply").build();
+		MtBatchTextSmsCreate message = SinchSMSApi.batchTextSms().sender(SENDER).addRecipient(to)
+				.body("Automated reply").build();
 		try {
 			MtBatchTextSmsResult batch = conn.createBatch(message);
 			System.out.println(batch);
