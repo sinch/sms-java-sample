@@ -49,7 +49,7 @@ public class SmsJavaSampleApplication {
 	 * be aware it can take up to a minute before and update to a callback url has
 	 * propagated everywhere.
 	 */
-	@PostMapping("/sms/incoming")
+	@PostMapping("/")
 	public ResponseEntity<Object> receiveInbound(@RequestBody IncomingSMS incoming) {
 		
 		
